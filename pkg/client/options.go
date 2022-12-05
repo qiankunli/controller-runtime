@@ -417,6 +417,11 @@ type ListOptions struct {
 	// it has expired. This field is not supported if watch is true in the Raw ListOptions.
 	Continue string
 
+	// disableDeepCopy indicates not to deep copy objects during list objects.
+	// Be very careful with this, when enabled you must DeepCopy any object before mutating it,
+	// otherwise you will mutate the object in the cache.
+	DisableDeepCopy bool
+
 	// Raw represents raw ListOptions, as passed to the API server.  Note
 	// that these may not be respected by all implementations of interface,
 	// and the LabelSelector, FieldSelector, Limit and Continue fields are ignored.
